@@ -5,6 +5,8 @@
 ***Teste para BackEnd para UOL HOST***
 O teste consiste em montar uma aplicação capaz de recuperar informações de um arquivo XML e de um arquivo JSON, persistir um cadastro em um banco de dados em memória ou em arquivo e listar os cadastros em uma interface simples.
 
+O projeto foi feito utilizando o framework Bootstrap para visuais simples porém agradáveis.
+
 ## Proposta
 O 'novo' sistema de cadastro de jogadores do UOL precisa de uma nova cara! Isso porque a área de lazer da empresa definiu que todo jogador deverá ter um codinome. A proposta foi um sucesso e muitos candidatos se inscreveram, por isso a área de lazer acabou restringindo os codinomes em duas listas distintas: "Os Vingadores" e "A Liga da Justiça".
 
