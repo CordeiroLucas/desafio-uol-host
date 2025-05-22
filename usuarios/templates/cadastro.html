@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block nav %}
+    <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item active disabled">
+            <a class="nav-link active disabled" href="{% url "cadastro" %}">Cadastrar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url "visualizar" %}">Visualizar</a>
+        </li>
+    </ul>
+{% endblock nav %}
+
+{% block body %}
+    <br>
+    {% if status == 0 %}
+        <div class="alert alert-success" role="alert">Cadastro realizado com Sucesso!</div>
+    {% elif status == 1 %}
+        <div class="alert alert-warning" role="alert">Não Há mais codinomes Disponíveis!</div>
+    {% elif status == 2 %}
+        <div class="alert alert-danger" role="alert">Formulário Inválido</div>
+    {% endif %}
+
+    <form action="{% url "cadastro" %}" method="POST">{% csrf_token %}
+        <br>
+        {% if status == 1 %}{% endif %}
+        <div class="mb-3">
+            {{ form.nome.as_field_group }}
+        </div>
+        <div class="mb-3">  
+            {{ form.email.as_field_group }}
+        </div>
+        <div class="mb-3">
+            {{ form.telefone.as_field_group }}
+        </div>
+        <div class="mb-3">
+            {{ form.grupo.as_field_group }}
+        </div>
+        <input type="submit" class="btn btn-success" value="Cadastrar">
+    </form>
+
+    {% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> {% endcomment %}
+    {% comment %} <script src="https://cdnjs.cloudfare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script> {% endcomment %}
+    
+{% endblock body %}

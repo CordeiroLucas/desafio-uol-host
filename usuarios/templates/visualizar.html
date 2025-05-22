@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block nav %}
+    <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url "cadastro" %}">Cadastrar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active disabled" href="{% url "visualizar" %}">Visualizar</a>
+        </li>
+    </ul>
+{% endblock nav %}
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Nome     
+                    <a class="dropdown-toggle link-secondary {% if sort_by == "nome" %}link-opacity-10{% endif %}" href="{% url "visualizar" %}?sort_by=nome&order={% if order == "asc" and sort_by == "nome" %}desc{% else %}asc{% endif %}"></a>
+                </th>
+                <th scope="col">
+                    Email 
+                    <a class="dropdown-toggle link-secondary {% if sort_by == "email" %}link-opacity-10{% endif %}" href="{% url "visualizar" %}?sort_by=email&order={% if order == "asc" and sort_by == "email" %}desc{% else %}asc{% endif %}"></a>
+                </th>
+                <th scope="col">
+                    Telefone 
+                    <a class="dropdown-toggle link-secondary {% if sort_by == "telefone" %}link-opacity-10{% endif %}" href="{% url "visualizar" %}?sort_by=telefone&order={% if order == "asc" and sort_by == "telefone" %}desc{% else %}asc{% endif %}"></a>
+                </th>
+                <th scope="col">
+                    Codinome 
+                    <a class="dropdown-toggle link-secondary {% if sort_by == "codinome" %}link-opacity-10{% endif %}" href="{% url "visualizar" %}?sort_by=codinome&order={% if order == "asc" and sort_by == "codinome" %}desc{% else %}asc{% endif %}"></a>
+                </th>
+                <th scope="col">
+                    Grupo 
+                    <a class="dropdown-toggle link-secondary {% if sort_by == "grupo" %}link-opacity-10{% endif %}" href="{% url "visualizar" %}?sort_by=grupo&order={% if order == "asc" and sort_by == "grupo" %}desc{% else %}asc{% endif %}"></a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+                <tr>
+                    <th scope="row">{{usuario.nome}}</th>
+                    <td>{{usuario.email}}</td>
+                    <td>{{usuario.telefone}}</td>
+                    <td>{{usuario.codinome}}</td>
+                    <td>{{usuario.grupo}}</td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock body %}
