@@ -59,7 +59,7 @@ py -m venv venv
 pip install django requests
 ```
 
-- Iniciar Projeto (Porta)
+- Iniciar Projeto
 ```bash
 py manage.py runserver.py
 ```
